@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using LaboratoryWork;
 using LaboratoryWork1.works;
 
-namespace LaboratoryWork1.works.work1
+namespace LaboratoryWork1.works.work01
 {
     class Task1_1 : ATask
     {
@@ -24,15 +24,15 @@ namespace LaboratoryWork1.works.work1
         protected override void executeTasck()
         {
             int n, m;
-            n = Utils.readInt("n");
-            m = Utils.readInt("m");
+            n = Utils.ReadInt("n");
+            m = Utils.ReadInt("m");
             if (m - 1 == 0)
             {
-                Utils.printText("Нельзя вычислить", true, ETextType.NORMAL);
+                Utils.PrintLnText("Нельзя вычислить");
             }
             else
             {
-                Utils.printText($"{calculate(n, m)}", true, ETextType.NORMAL);
+                Utils.PrintLnText($"{calculate(n, m)}");
             }
         }
 

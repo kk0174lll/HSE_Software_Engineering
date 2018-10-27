@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboratoryWork1.works.work1
+namespace LaboratoryWork1.works.work01
 {
     class Task2_1 : ATask
     {
@@ -44,9 +44,9 @@ namespace LaboratoryWork1.works.work1
         protected override void executeTasck()
         {
             int x, y;
-            x = Utils.readInt("x");
-            y = Utils.readInt("y");
-            Utils.printText($"{calculate(x, y)}", true, ETextType.NORMAL);
+            x = Utils.ReadInt("x");
+            y = Utils.ReadInt("y");
+            Utils.PrintLnText($"{calculate(x, y)}");
         }
     }
 }

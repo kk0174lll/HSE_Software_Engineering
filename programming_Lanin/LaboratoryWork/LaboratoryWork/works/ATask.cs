@@ -23,7 +23,7 @@ namespace LaboratoryWork1.works
 
         protected void printTasckName()
         {
-            Utils.printText(taskName, true, ETextType.NORMAL);
+            Utils.PrintLnText(taskName);
         }
 
     }

@@ -8,8 +8,31 @@ namespace LaboratoryWork
 {
     class Utils
     {
-        private static ConsoleColor DEFAULT = ConsoleColor.White;
-        public static void printText(String text, Boolean newline, ETextType textType)
+        private static readonly ConsoleColor DEFAULT = ConsoleColor.White;
+
+        private delegate bool TryParseFunction<T>(string value, out T result);
+
+        public static void PrintLnText(String text)
+        {
+            Utils.PrintText(text, true, ETextType.NORMAL);
+        }
+
+        public static void PrintText(String text)
+        {
+            Utils.PrintText(text, false, ETextType.NORMAL);
+        }
+
+        public static void PrintLnErrorText(String text)
+        {
+            Utils.PrintText(text, true, ETextType.ERRORR);
+        }
+
+        public static void PrintErrorText(String text)
+        {
+            Utils.PrintText(text, false, ETextType.ERRORR);
+        }
+
+        private static void PrintText(String text, Boolean newline, ETextType textType)
         {
             switch (textType)
             {
@@ -29,38 +52,30 @@ namespace LaboratoryWork
             Console.ForegroundColor = DEFAULT;
         }
 
-        public static int readInt(String variableName)
+        public static int ReadInt(String variableName)
         {
-            int result = 0;
-            bool success = false;
-            while (!success)
-            {
-                Utils.printText($"Please enter Int number {variableName}=", false, ETextType.NORMAL);
-                String enteredText = Console.ReadLine();
-                success = int.TryParse(enteredText, out result);
-                if (!success)
-                {
-                    Utils.printText($"ERRORR: fail parse {enteredText} to int. Try again.", true, ETextType.ERRORR);
-                }
-            }
-            return result;
+            return ReadFromConsole<int>(variableName, int.TryParse);
         }
 
-        public static double readDouble(String variableName)
+        public static double ReadDouble(String variableName)
         {
-            double result = 0;
-            bool success = false;
-            while (!success)
-            {
-                Utils.printText($"Please enter double number {variableName}=", false, ETextType.NORMAL);
-                String enteredText = Console.ReadLine();
-                success = double.TryParse(enteredText, out result);
-                if (!success)
-                {
-                    Utils.printText($"ERRORR: fail parse {enteredText} to double. Try again.", true, ETextType.ERRORR);
-                }
-            }
-            return result;
+            return ReadFromConsole<double>(variableName, double.TryParse);
         }
+
+        private static T ReadFromConsole<T>(String variableName, TryParseFunction<T> tryParse)
+        {
+            do
+            {
+                Utils.PrintText($"Please enter {variableName} = ", false, ETextType.NORMAL);
+                String enteredText = Console.ReadLine();
+                T result;
+                if (tryParse(enteredText, out result))
+                {
+                    return result;
+                }
+                Utils.PrintText($"ERRORR: fail parse {enteredText}. Try again.", true, ETextType.ERRORR);
+            } while (true);
+        }
+
     }
 }
