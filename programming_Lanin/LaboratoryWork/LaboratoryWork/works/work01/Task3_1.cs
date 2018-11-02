@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboratoryWork1.works.work1
+namespace LaboratoryWork1.works.work01
 {
     class Task3_1 : ATask
     {
@@ -28,15 +28,15 @@ namespace LaboratoryWork1.works.work1
         protected override void executeTasck()
         {
             double a, b;
-            a = Utils.readDouble("a");
-            b = Utils.readDouble("b");
+            a = Utils.ReadDouble("a");
+            b = Utils.ReadDouble("b");
             if (a == 0)
             {
-                Utils.printText("Нельзя вычислить", true, ETextType.NORMAL);
+                Utils.PrintLnText("Нельзя вычислить");
             }
             else
             {
-                Utils.printText($"{calculate(a, b)}", true, ETextType.NORMAL);
+                Utils.PrintLnText($"{calculate(a, b)}");
             }
             
         }
