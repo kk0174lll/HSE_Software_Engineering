@@ -42,9 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="utils\ArrayUtils.cs" />
     <Compile Include="utils\ETextType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utils\MenuUtils.cs" />
     <Compile Include="utils\Utils.cs" />
     <Compile Include="works\ATask.cs" />
     <Compile Include="works\work01\Task1_1.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="works\work02\Task3.cs" />
     <Compile Include="works\work03\Task1.cs" />
     <Compile Include="works\work04\Task1.cs" />
+    <Compile Include="works\work05\Task1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
