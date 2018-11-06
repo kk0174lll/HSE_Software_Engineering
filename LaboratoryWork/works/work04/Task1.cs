@@ -40,20 +40,7 @@ namespace LaboratoryWork1.works.work04
         protected override void executeTasck()
         {
             MenuUtils.MakeMenu(PrintMenu, ActionFromMenu);
-        }
-
-        private int[] CreateArray(ArrayUtils.createElementFunction makeFunction)
-        {
-            int n = Utils.ReadInt($"number of array elements");
-            if (n < 0)
-            {
-                Utils.PrintLnErrorText($"number of array elements must be > 0; create empty array");
-                return new int[0];
-            }
-            int[] array = ArrayUtils.CreateArray(n, makeFunction);
-            Utils.PrintLnText($"CreateArray successful: {ArrayUtils.PrintArray(array)}");
-            return array;
-        }
+        }        
 
         private int[] DeleteFromArray(int[] array)
         {
@@ -156,7 +143,9 @@ namespace LaboratoryWork1.works.work04
                 return;
             }
             int n = Utils.ReadInt($"value for find");
-            if (ArrayUtils.FindValue(array, n, out int findIndex, out int count))
+            int findIndex;
+            int count;
+            if (ArrayUtils.FindValue(array, n, out findIndex, out count))
             {
                 Utils.PrintLnText($"value {n} index = {findIndex}; compare count = {count}");
             }
@@ -164,7 +153,6 @@ namespace LaboratoryWork1.works.work04
             {
                 Utils.PrintLnText($"value {n} no in array; compare count = {count}");
             }
-
         }
 
         private void BinaryFindValue(int[] array)
@@ -227,14 +215,12 @@ namespace LaboratoryWork1.works.work04
             Utils.PrintLnText($" 0 - Выход");
         }
 
-        private bool ActionFromMenu()
-        {
-            bool exit = false;
-            int action = Utils.ReadInt($"number of action");
+        private void ActionFromMenu(int action, ref bool exit)
+        {            
             switch (action)
             {
-                case 1: array = CreateArray(ArrayUtils.ElementFromHand); break;
-                case 2: array = CreateArray(ArrayUtils.ElementFromRandom); break;
+                case 1: array = ArrayUtils.CreateArray(ArrayUtils.ElementFromHand); break;
+                case 2: array = ArrayUtils.CreateArray(ArrayUtils.ElementFromRandom); break;
                 case 3: Utils.PrintLnText($"Array: {ArrayUtils.PrintArray(array)}"); break;
                 case 4: array = DeleteFromArray(array); break;
                 case 5: array = UpdateArray(array, ArrayUtils.ElementFromHand); break;
@@ -244,8 +230,7 @@ namespace LaboratoryWork1.works.work04
                 case 9: array = Sort(array); break;
                 case 10: BinaryFindValue(array); break;
                 case 0: exit = true; break;
-            }
-            return exit;
+            }            
         }
     }
 }

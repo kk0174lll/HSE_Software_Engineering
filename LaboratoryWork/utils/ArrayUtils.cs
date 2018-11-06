@@ -9,7 +9,6 @@ namespace LaboratoryWork1.utils
 {
     class ArrayUtils
     {
-        public const String HAND_CREATE_MSG = "Создать массив вручную";
         public delegate int createElementFunction(String index);
 
         private static Random random = new Random(0);
@@ -23,6 +22,33 @@ namespace LaboratoryWork1.utils
         public static int ElementFromHand(String index)
         {
             return Utils.ReadInt($"array_{index}");
+        }
+
+        public static int[] CreateArray(ArrayUtils.createElementFunction makeFunction)
+        {
+            int n = Utils.ReadInt($"number of array elements");
+            if (n < 0)
+            {
+                Utils.PrintLnErrorText($"number of array elements must be > 0; create empty array");
+                return new int[0];
+            }
+            int[] array = ArrayUtils.CreateArray(n, makeFunction);
+            Utils.PrintLnText($"CreateArray successful: {ArrayUtils.PrintArray(array)}");
+            return array;
+        }
+
+        public static int[,] CreateMatrixArray(ArrayUtils.createElementFunction makeFunction)
+        {
+            int n = Utils.ReadInt($"number size N");
+            int m = Utils.ReadInt($"number size M");
+            if (n < 0 || m < 0)
+            {
+                Utils.PrintLnErrorText($"size must be > 0; create empty array");
+                return new int[0, 0];
+            }
+            int[,] array = ArrayUtils.CreateArray(n, m, makeFunction);
+            Utils.PrintLnText($"CreateArray successful: {ArrayUtils.PrintArray(array)}");
+            return array;
         }
 
         public static int[] CreateArray(int n, ArrayUtils.createElementFunction makeFunction)
@@ -55,6 +81,20 @@ namespace LaboratoryWork1.utils
             foreach (int x in array)
             {
                 sb.Append($"{x} ");
+            }
+            return sb.ToString();
+        }
+
+        public static String PrintArray(int[,] array)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    sb.Append($"{array[i,j]} ");
+                }
+                sb.Append("\n");
             }
             return sb.ToString();
         }

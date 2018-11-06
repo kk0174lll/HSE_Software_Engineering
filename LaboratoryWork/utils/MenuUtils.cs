@@ -11,7 +11,7 @@ namespace LaboratoryWork1.utils
     {
 
         public delegate void printMenuFunction();
-        public delegate bool actionFromMenuFunction();
+        public delegate void actionFromMenuFunction(int action, ref bool exit);
 
         public static void MakeMenu(printMenuFunction printMenu, actionFromMenuFunction actionFromMenu)
         {
@@ -21,11 +21,12 @@ namespace LaboratoryWork1.utils
                 printMenu();
                 try
                 {
-                    exit = actionFromMenu();
+                    int action = Utils.ReadInt("number of action");
+                    actionFromMenu(action, ref exit);
                 }
                 catch (Exception e)
                 {
-                    Utils.PrintLnErrorText($"something wrong, try again");
+                    Utils.PrintLnErrorText($"something wrong ({e.Message}), try again");
                 }
             } while (!exit);
         }

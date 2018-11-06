@@ -33,7 +33,9 @@ namespace LaboratoryWork
 
             //new LaboratoryWork1.works.work03.Task1().runTask();
 
-            new LaboratoryWork1.works.work04.Task1().runTask();
+            //new LaboratoryWork1.works.work04.Task1().runTask();
+
+            new LaboratoryWork1.works.work05.Task1().runTask();
         }
     }
 }

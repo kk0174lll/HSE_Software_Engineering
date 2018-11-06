@@ -60,6 +60,8 @@
     <Compile Include="works\work02\Task3.cs" />
     <Compile Include="works\work03\Task1.cs" />
     <Compile Include="works\work04\Task1.cs" />
+    <Compile Include="works\work05\IExecutor.cs" />
+    <Compile Include="works\work05\Menu.cs" />
     <Compile Include="works\work05\Task1.cs" />
   </ItemGroup>
   <ItemGroup>

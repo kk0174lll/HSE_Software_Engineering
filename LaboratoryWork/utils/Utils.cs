@@ -12,27 +12,27 @@ namespace LaboratoryWork
 
         private delegate bool TryParseFunction<T>(string value, out T result);
 
-        public static void PrintLnText(String text)
+        public static void PrintLnText(string text)
         {
             Utils.PrintText(text, true, ETextType.NORMAL);
         }
 
-        public static void PrintText(String text)
+        public static void PrintText(string text)
         {
             Utils.PrintText(text, false, ETextType.NORMAL);
         }
 
-        public static void PrintLnErrorText(String text)
+        public static void PrintLnErrorText(string text)
         {
             Utils.PrintText(text, true, ETextType.ERRORR);
         }
 
-        public static void PrintErrorText(String text)
+        public static void PrintErrorText(string text)
         {
             Utils.PrintText(text, false, ETextType.ERRORR);
         }
 
-        private static void PrintText(String text, Boolean newline, ETextType textType)
+        private static void PrintText(string text, bool newline, ETextType textType)
         {
             switch (textType)
             {
@@ -52,22 +52,22 @@ namespace LaboratoryWork
             Console.ForegroundColor = DEFAULT;
         }
 
-        public static int ReadInt(String variableName)
+        public static int ReadInt(string variableName)
         {
             return ReadFromConsole<int>(variableName, int.TryParse);
         }
 
-        public static double ReadDouble(String variableName)
+        public static double ReadDouble(string variableName)
         {
             return ReadFromConsole<double>(variableName, double.TryParse);
         }
 
-        private static T ReadFromConsole<T>(String variableName, TryParseFunction<T> tryParse)
+        private static T ReadFromConsole<T>(string variableName, TryParseFunction<T> tryParse)
         {
             do
             {
                 Utils.PrintText($"Please enter {variableName} = ", false, ETextType.NORMAL);
-                String enteredText = Console.ReadLine();
+                string enteredText = Console.ReadLine();
                 T result;
                 if (tryParse(enteredText, out result))
                 {

@@ -8,64 +8,36 @@ using System.Threading.Tasks;
 
 namespace LaboratoryWork1.works.work05
 {
-    class Task1 : ATask
+    class Task1 : ATask, IExecutor
     {
-        
+        private Menu menu;
+
+        private int[] array;
+
         public Task1()
-        {
+        {            
             taskName = "v19. w05, task 1";
+            menu = new Menu(this);
         }
 
         protected override void executeTasck()
         {
-            MenuUtils.MakeMenu(PrintMainMenu, ActionFromMainMenu);
+            MenuUtils.MakeMenu(menu.PrintMainMenu, menu.ActionFromMainMenu);
         }
 
-        private void PrintMainMenu()
+        public void CreateArray(ArrayUtils.createElementFunction makeFunction)
         {
-            Utils.PrintLnText(" 1 - Работа с одномерными массивами");
-            Utils.PrintLnText(" 2 - Работа с двумерными массивами");
-            Utils.PrintLnText(" 3 - Работа с рваными массивами");
-            Utils.PrintLnText(" 0 - Выход");
+            array = ArrayUtils.CreateArray(makeFunction);
         }
 
-        private bool ActionFromMainMenu()
+        public void PrintArray()
         {
-            bool exit = false;
-            int action = Utils.ReadInt("number of action");
-            switch (action)
-            {
-                case 1: MenuUtils.MakeMenu(PrintArrayMenu, ActionFromMainMenu); break;
-                case 2: MenuUtils.MakeMenu(PrintMatrixMenu, ActionFromMainMenu); break;
-                case 3: MenuUtils.MakeMenu(PrintRaggedMenu, ActionFromMainMenu); break;                
-                case 0: exit = true; break;
-            }
-            return exit;
+            Utils.PrintLnText($"Array: {ArrayUtils.PrintArray(array)}");
         }
 
-        private void PrintArrayMenu()
+        public void AddElem()
         {
-            Utils.PrintLnText($" 1 - {ArrayUtils.HAND_CREATE_MSG}");
-            Utils.PrintLnText($" 2 - Работа с двумерными массивами");
-            Utils.PrintLnText($" 3 - Работа с рваными массивами");
-            Utils.PrintLnText($" 0 - Выход");
+            throw new NotImplementedException();
         }
-
-        private void PrintMatrixMenu()
-        {
-            Utils.PrintLnText($" 1 - {ArrayUtils.HAND_CREATE_MSG}");
-            Utils.PrintLnText($" 2 - Работа с двумерными массивами");
-            Utils.PrintLnText($" 3 - Работа с рваными массивами");
-            Utils.PrintLnText($" 0 - Выход");
-        }
-
-        private void PrintRaggedMenu()
-        {
-            Utils.PrintLnText($" 1 - {ArrayUtils.HAND_CREATE_MSG}");
-            Utils.PrintLnText($" 2 - Работа с двумерными массивами");
-            Utils.PrintLnText($" 3 - Работа с рваными массивами");
-            Utils.PrintLnText($" 0 - Выход");
-        }
-
     }
 }
