@@ -51,7 +51,28 @@ namespace LaboratoryWork1.utils
             return array;
         }
 
-        public static int[] CreateArray(int n, ArrayUtils.createElementFunction makeFunction)
+        public static int[][] CreateRaggedArray(ArrayUtils.createElementFunction makeFunction)
+        {
+            int n = Utils.ReadInt($"number size N");
+            if (n < 0)
+            {
+                throw new ArgumentException($"size N must be > 0");
+            }
+            int[][] array = new int[n][];
+            for (int i = 0; i < n; i++)
+            {
+                int m = Utils.ReadInt($"number size M");
+                if (m < 0)
+                {
+                    throw new ArgumentException($"size M must be > 0");
+                }
+                array[i] = ArrayUtils.CreateArray(m, makeFunction);
+            }
+            Utils.PrintLnText($"CreateArray successful: {ArrayUtils.PrintArray(array)}");
+            return array;
+        }
+
+        private static int[] CreateArray(int n, ArrayUtils.createElementFunction makeFunction)
         {
             int[] array = new int[n];
             for (int i = 0; i < n; i++)
@@ -61,12 +82,12 @@ namespace LaboratoryWork1.utils
             return array;
         }
 
-        public static int[,] CreateArray(int n, int m, ArrayUtils.createElementFunction makeFunction)
+        private static int[,] CreateArray(int n, int m, ArrayUtils.createElementFunction makeFunction)
         {
             int[,] array = new int[n, m];
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; i < m; i++)
+                for (int j = 0; j < m; j++)
                 {
                     array[i, j] = makeFunction($"[{i},{j}]");
                 }
@@ -87,12 +108,12 @@ namespace LaboratoryWork1.utils
 
         public static String PrintArray(int[,] array)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder("\n");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    sb.Append($"{array[i,j]} ");
+                    sb.Append($"{array[i, j]} ");
                 }
                 sb.Append("\n");
             }
@@ -101,7 +122,7 @@ namespace LaboratoryWork1.utils
 
         public static String PrintArray(int[][] arrays)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder("\n");
             foreach (int[] array in arrays)
             {
                 foreach (int element in array)

@@ -33,11 +33,11 @@ namespace LaboratoryWork1.works.work05
             switch (action)
             {
                 case 1: MenuUtils.MakeMenu(PrintArrayMenu, ActionFromArrayMenu); break;
-                case 2: MenuUtils.MakeMenu(PrintMatrixMenu, ActionFromMainMenu); break;
-                case 3: MenuUtils.MakeMenu(PrintRaggedMenu, ActionFromMainMenu); break;
+                case 2: MenuUtils.MakeMenu(PrintMatrixMenu, ActionFromMatrixMenu); break;
+                case 3: MenuUtils.MakeMenu(PrintRaggedMenu, ActionFromRaggedMenu); break;
                 case 0: exit = true; break;
             }
-        }        
+        }
 
         private void PrintArrayMenu()
         {
@@ -61,7 +61,7 @@ namespace LaboratoryWork1.works.work05
         private void PrintCreateArrayMenu()
         {
             Utils.PrintLnText($" 1 - {HAND_CREATE_MSG}");
-            Utils.PrintLnText($" 2 - {RANDOM_CREATE_MSG}");            
+            Utils.PrintLnText($" 2 - {RANDOM_CREATE_MSG}");
             Utils.PrintLnText($" 0 - Назад");
         }
 
@@ -70,7 +70,7 @@ namespace LaboratoryWork1.works.work05
             switch (action)
             {
                 case 1: executor.CreateArray(ArrayUtils.ElementFromHand); break;
-                case 2: executor.CreateArray(ArrayUtils.ElementFromRandom); break;                
+                case 2: executor.CreateArray(ArrayUtils.ElementFromRandom); break;
                 case 0: exit = true; break;
             }
         }
@@ -85,12 +85,54 @@ namespace LaboratoryWork1.works.work05
             Utils.PrintLnText($" 0 - Назад");
         }
 
+        public void ActionFromMatrixMenu(int action, ref bool exit)
+        {
+            switch (action)
+            {
+                case 1: MenuUtils.MakeMenu(PrintCreateArrayMenu, ActionFromCreateMatrixMenu); break;
+                case 2: executor.PrintMatrix(); break;
+                case 3: executor.DeleteRow(); break;
+                case 0: exit = true; break;
+            }
+        }
+
+        public void ActionFromCreateMatrixMenu(int action, ref bool exit)
+        {
+            switch (action)
+            {
+                case 1: executor.CreateMatrix(ArrayUtils.ElementFromHand); break;
+                case 2: executor.CreateMatrix(ArrayUtils.ElementFromRandom); break;
+                case 0: exit = true; break;
+            }
+        }
+
         private void PrintRaggedMenu()
         {
             Utils.PrintLnText($" 1 - {CREATE_MSG}");
             Utils.PrintLnText($" 2 - {PRINT_MSG}");
             Utils.PrintLnText($" 3 - Добавить строку в начало массива");
             Utils.PrintLnText($" 0 - Назад");
-        }        
+        }
+
+        public void ActionFromRaggedMenu(int action, ref bool exit)
+        {
+            switch (action)
+            {
+                case 1: MenuUtils.MakeMenu(PrintCreateArrayMenu, ActionFromCreateRaggedMenu); break;
+                case 2: executor.PrintRaggedArray(); break;
+                case 3: executor.AddRowToBeginning(); break;
+                case 0: exit = true; break;
+            }
+        }
+
+        public void ActionFromCreateRaggedMenu(int action, ref bool exit)
+        {
+            switch (action)
+            {
+                case 1: executor.CreateRaggedArray(ArrayUtils.ElementFromHand); break;
+                case 2: executor.CreateRaggedArray(ArrayUtils.ElementFromRandom); break;
+                case 0: exit = true; break;
+            }
+        }
     }
 }
