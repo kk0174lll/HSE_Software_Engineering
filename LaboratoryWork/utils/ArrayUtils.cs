@@ -11,7 +11,7 @@ namespace LaboratoryWork1.utils
     {
         public delegate int createElementFunction(String index);
 
-        private static Random random = new Random(0);
+        public static Random random = new Random(0);
 
 
         public static int ElementFromRandom(String index)
@@ -72,7 +72,7 @@ namespace LaboratoryWork1.utils
             return array;
         }
 
-        private static int[] CreateArray(int n, ArrayUtils.createElementFunction makeFunction)
+        public static int[] CreateArray(int n, ArrayUtils.createElementFunction makeFunction)
         {
             int[] array = new int[n];
             for (int i = 0; i < n; i++)
@@ -154,6 +154,12 @@ namespace LaboratoryWork1.utils
                     }
                 }
             } while (swappedElements);
+        }
+
+        public static bool FindValue(int[] array, int n)
+        {
+            int findIndex, count;
+            return FindValue(array, n, out findIndex, out count);
         }
 
         public static bool FindValue(int[] array, int n, out int findIndex, out int count)

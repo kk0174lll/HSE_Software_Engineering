@@ -49,6 +49,10 @@
     <Compile Include="utils\MenuUtils.cs" />
     <Compile Include="utils\Utils.cs" />
     <Compile Include="works\ATask.cs" />
+    <Compile Include="works\classroomWork01\Task1.cs" />
+    <Compile Include="works\classroomWork01\Task2.cs" />
+    <Compile Include="works\classroomWork01\Task3.cs" />
+    <Compile Include="works\classroomWork01\Task4.cs" />
     <Compile Include="works\work01\Task1_1.cs" />
     <Compile Include="works\work01\Task1_2.cs" />
     <Compile Include="works\work01\Task1_3.cs" />
