@@ -9,7 +9,7 @@ namespace LaboratoryWork1.works
 {
     abstract class ATask
     {
-        public String taskName;
+        protected String taskName;
 
         public void runTask()
         {
@@ -21,7 +21,7 @@ namespace LaboratoryWork1.works
 
         protected abstract void executeTasck();
 
-        protected void printTasckName()
+        public void printTasckName()
         {
             Utils.PrintLnText(taskName);
         }

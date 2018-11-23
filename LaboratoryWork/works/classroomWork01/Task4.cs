@@ -22,7 +22,7 @@ namespace LaboratoryWork1.works.classroomWork01
         /// </summary>
         protected override void executeTasck()
         {
-            int[] array = ArrayUtils.CreateArray((e) => { return ArrayUtils.random.Next(-50, 51); });
+            int[] array = IntArrayUtils.CreateArray((e) => { return Utils.random.Next(-50, 51); });
             int[] newArray = new int[array.Length];
             int leftPosition = 0;
             int rightPosition = array.Length - 1;
@@ -40,7 +40,7 @@ namespace LaboratoryWork1.works.classroomWork01
                     leftPosition++;
                 }
             }
-            Utils.PrintLnText($"Array: {ArrayUtils.PrintArray(newArray)}");
+            Utils.PrintLnText($"Array: {IntArrayUtils.PrintArray(newArray)}");
         }
     }
 }

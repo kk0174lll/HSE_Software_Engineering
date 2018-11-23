@@ -27,18 +27,18 @@ namespace LaboratoryWork1.works.classroomWork01
         /// </summary>
         protected override void executeTasck()
         {
-            Random random = new Random(0);
-            int[] roseOfWind = ArrayUtils.CreateArray(365, (e) => { return ArrayUtils.random.Next(1, 9); });
-            Utils.PrintLnText($"roseOfWind: {ArrayUtils.PrintArray(roseOfWind)}");
+            int dayCount = 365;            
+            int[] roseOfWind = IntArrayUtils.CreateArray(dayCount, (e) => { return Utils.random.Next(1, 9); });
+            Utils.PrintLnText($"roseOfWind: {IntArrayUtils.PrintArray(roseOfWind)}");
             int[] directionСounter = new int[8];
             foreach (int direction in roseOfWind)
             {
                 directionСounter[direction - 1]++;
             }
-            Utils.PrintLnText($"directionСounter: {ArrayUtils.PrintArray(directionСounter)}");
+            Utils.PrintLnText($"directionСounter: {IntArrayUtils.PrintArray(directionСounter)}");
 
             int minDirection = 0;
-            int minDirectionCount = 365;
+            int minDirectionCount = dayCount;
             for (int i = 0; i < 8; i++)
             {
                 if (minDirectionCount < directionСounter[i])

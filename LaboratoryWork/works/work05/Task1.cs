@@ -1,4 +1,5 @@
-﻿using LaboratoryWork;
+﻿
+using LaboratoryWork;
 using LaboratoryWork1.utils;
 using System;
 
@@ -23,14 +24,14 @@ namespace LaboratoryWork1.works.work05
             MenuUtils.MakeMenu(menu.PrintMainMenu, menu.ActionFromMainMenu);
         }
 
-        public void CreateArray(ArrayUtils.createElementFunction makeFunction)
+        public void CreateArray(IntArrayUtils.createElementFunction makeFunction)
         {
-            array = ArrayUtils.CreateArray(makeFunction);
+            array = IntArrayUtils.CreateArray(makeFunction);
         }
 
         public void PrintArray()
         {
-            Utils.PrintLnText($"Array: {ArrayUtils.PrintArray(array)}");
+            Utils.PrintLnText($"Array: {IntArrayUtils.PrintArray(array)}");
         }
 
         /// <summary>
@@ -58,17 +59,17 @@ namespace LaboratoryWork1.works.work05
                 }
             }
             array = newArray;
-            Utils.PrintLnText($"UpdateArray successful: {ArrayUtils.PrintArray(array)}");
+            Utils.PrintLnText($"UpdateArray successful: {IntArrayUtils.PrintArray(array)}");
         }
 
-        public void CreateMatrix(ArrayUtils.createElementFunction makeFunction)
+        public void CreateMatrix(IntArrayUtils.createElementFunction makeFunction)
         {
-            matrix = ArrayUtils.CreateMatrixArray(makeFunction);
+            matrix = IntArrayUtils.CreateMatrixArray(makeFunction);
         }
 
         public void PrintMatrix()
         {
-            Utils.PrintLnText($"Array: {ArrayUtils.PrintArray(matrix)}");
+            Utils.PrintLnText($"Array: {IntArrayUtils.PrintArray(matrix)}");
         }
 
         /// <summary>
@@ -104,17 +105,17 @@ namespace LaboratoryWork1.works.work05
                 newi++;
             }
             matrix = matrixNew;
-            Utils.PrintLnText($"UpdateArray successful: {ArrayUtils.PrintArray(matrix)}");
+            Utils.PrintLnText($"UpdateArray successful: {IntArrayUtils.PrintArray(matrix)}");
         }
 
-        public void CreateRaggedArray(ArrayUtils.createElementFunction makeFunction)
+        public void CreateRaggedArray(IntArrayUtils.createElementFunction makeFunction)
         {
-            raggedArray = ArrayUtils.CreateRaggedArray(makeFunction);
+            raggedArray = IntArrayUtils.CreateRaggedArray(makeFunction);
         }
 
         public void PrintRaggedArray()
         {
-            Utils.PrintLnText($"Array: {ArrayUtils.PrintArray(raggedArray)}"); ;
+            Utils.PrintLnText($"Array: {IntArrayUtils.PrintArray(raggedArray)}"); ;
         }
 
         /// <summary>
@@ -123,13 +124,13 @@ namespace LaboratoryWork1.works.work05
         public void AddRowToBeginning()
         {
             int[][] newRaggedArray = new int[raggedArray.Length + 1][];
-            newRaggedArray[0] = ArrayUtils.CreateArray(ArrayUtils.ElementFromRandom);
+            newRaggedArray[0] = IntArrayUtils.CreateArray(Utils.intArrayUtils.ElementFromRandom);
             for (int i = 0; i < raggedArray.Length; i++)
             {
                 newRaggedArray[i + 1] = raggedArray[i];
             }
             raggedArray = newRaggedArray;
-            Utils.PrintLnText($"UpdateArray successful: {ArrayUtils.PrintArray(raggedArray)}");
+            Utils.PrintLnText($"UpdateArray successful: {IntArrayUtils.PrintArray(raggedArray)}");
         }
     }
 }

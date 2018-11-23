@@ -9,9 +9,9 @@ namespace LaboratoryWork1.works.work05
 {
     interface IExecutor
     {
-        void CreateArray(ArrayUtils.createElementFunction makeFunction);
-        void CreateMatrix(ArrayUtils.createElementFunction makeFunction);
-        void CreateRaggedArray(ArrayUtils.createElementFunction makeFunction);
+        void CreateArray(IntArrayUtils.createElementFunction makeFunction);
+        void CreateMatrix(IntArrayUtils.createElementFunction makeFunction);
+        void CreateRaggedArray(IntArrayUtils.createElementFunction makeFunction);
         void PrintArray();
         void PrintMatrix();
         void PrintRaggedArray();

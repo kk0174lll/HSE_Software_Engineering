@@ -69,8 +69,8 @@ namespace LaboratoryWork1.works.work05
         {
             switch (action)
             {
-                case 1: executor.CreateArray(ArrayUtils.ElementFromHand); break;
-                case 2: executor.CreateArray(ArrayUtils.ElementFromRandom); break;
+                case 1: executor.CreateArray(Utils.intArrayUtils.ElementFromHand); break;
+                case 2: executor.CreateArray(Utils.intArrayUtils.ElementFromRandom); break;
                 case 0: exit = true; break;
             }
         }
@@ -100,8 +100,8 @@ namespace LaboratoryWork1.works.work05
         {
             switch (action)
             {
-                case 1: executor.CreateMatrix(ArrayUtils.ElementFromHand); break;
-                case 2: executor.CreateMatrix(ArrayUtils.ElementFromRandom); break;
+                case 1: executor.CreateMatrix(Utils.intArrayUtils.ElementFromHand); break;
+                case 2: executor.CreateMatrix(Utils.intArrayUtils.ElementFromRandom); break;
                 case 0: exit = true; break;
             }
         }
@@ -129,8 +129,8 @@ namespace LaboratoryWork1.works.work05
         {
             switch (action)
             {
-                case 1: executor.CreateRaggedArray(ArrayUtils.ElementFromHand); break;
-                case 2: executor.CreateRaggedArray(ArrayUtils.ElementFromRandom); break;
+                case 1: executor.CreateRaggedArray(Utils.intArrayUtils.ElementFromHand); break;
+                case 2: executor.CreateRaggedArray(Utils.intArrayUtils.ElementFromRandom); break;
                 case 0: exit = true; break;
             }
         }

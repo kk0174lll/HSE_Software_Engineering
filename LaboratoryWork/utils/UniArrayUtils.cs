@@ -7,58 +7,55 @@ using System.Threading.Tasks;
 
 namespace LaboratoryWork1.utils
 {
-    class ArrayUtils
+    abstract class UniArrayUtils<T>
     {
-        public delegate int createElementFunction(String index);
+        public delegate T createElementFunction(string index);
 
-        public static Random random = new Random(0);
+        public abstract T ElementFromRandom(string index);
+
+        public abstract T ElementFromHand(string index);
 
 
-        public static int ElementFromRandom(String index)
+        protected static T ElementFromHand(string index, Utils.TryParseFunction<T> tryParse)
         {
-            return random.Next(0, 100);
+            return Utils.ReadFromConsole($"array_{index}", tryParse);
         }
 
-        public static int ElementFromHand(String index)
-        {
-            return Utils.ReadInt($"array_{index}");
-        }
-
-        public static int[] CreateArray(ArrayUtils.createElementFunction makeFunction)
+        public static T[] CreateArray(createElementFunction makeFunction)
         {
             int n = Utils.ReadInt($"number of array elements");
             if (n < 0)
             {
                 Utils.PrintLnErrorText($"number of array elements must be > 0; create empty array");
-                return new int[0];
+                return new T[0];
             }
-            int[] array = ArrayUtils.CreateArray(n, makeFunction);
-            Utils.PrintLnText($"CreateArray successful: {ArrayUtils.PrintArray(array)}");
+            T[] array = CreateArray(n, makeFunction);
+            Utils.PrintLnText($"CreateArray successful: {PrintArray(array)}");
             return array;
         }
 
-        public static int[,] CreateMatrixArray(ArrayUtils.createElementFunction makeFunction)
+        public static T[,] CreateMatrixArray(createElementFunction makeFunction)
         {
             int n = Utils.ReadInt($"number size N");
             int m = Utils.ReadInt($"number size M");
             if (n < 0 || m < 0)
             {
                 Utils.PrintLnErrorText($"size must be > 0; create empty array");
-                return new int[0, 0];
+                return new T[0, 0];
             }
-            int[,] array = ArrayUtils.CreateArray(n, m, makeFunction);
-            Utils.PrintLnText($"CreateArray successful: {ArrayUtils.PrintArray(array)}");
+            T[,] array = CreateArray(n, m, makeFunction);
+            Utils.PrintLnText($"CreateArray successful: {PrintArray(array)}");
             return array;
         }
 
-        public static int[][] CreateRaggedArray(ArrayUtils.createElementFunction makeFunction)
+        public static T[][] CreateRaggedArray(createElementFunction makeFunction)
         {
             int n = Utils.ReadInt($"number size N");
             if (n < 0)
             {
                 throw new ArgumentException($"size N must be > 0");
             }
-            int[][] array = new int[n][];
+            T[][] array = new T[n][];
             for (int i = 0; i < n; i++)
             {
                 int m = Utils.ReadInt($"number size M");
@@ -66,15 +63,15 @@ namespace LaboratoryWork1.utils
                 {
                     throw new ArgumentException($"size M must be > 0");
                 }
-                array[i] = ArrayUtils.CreateArray(m, makeFunction);
+                array[i] = CreateArray(m, makeFunction);
             }
-            Utils.PrintLnText($"CreateArray successful: {ArrayUtils.PrintArray(array)}");
+            Utils.PrintLnText($"CreateArray successful: {PrintArray(array)}");
             return array;
         }
 
-        public static int[] CreateArray(int n, ArrayUtils.createElementFunction makeFunction)
+        public static T[] CreateArray(int n, createElementFunction makeFunction)
         {
-            int[] array = new int[n];
+            T[] array = new T[n];
             for (int i = 0; i < n; i++)
             {
                 array[i] = makeFunction($"[{i}]");
@@ -82,9 +79,9 @@ namespace LaboratoryWork1.utils
             return array;
         }
 
-        private static int[,] CreateArray(int n, int m, ArrayUtils.createElementFunction makeFunction)
+        private static T[,] CreateArray(int n, int m, createElementFunction makeFunction)
         {
-            int[,] array = new int[n, m];
+            T[,] array = new T[n, m];
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
@@ -96,17 +93,17 @@ namespace LaboratoryWork1.utils
             return array;
         }
 
-        public static String PrintArray(int[] array)
+        public static string PrintArray(T[] array)
         {
             StringBuilder sb = new StringBuilder();
-            foreach (int x in array)
+            foreach (T x in array)
             {
                 sb.Append($"{x} ");
             }
             return sb.ToString();
         }
 
-        public static String PrintArray(int[,] array)
+        public static string PrintArray(T[,] array)
         {
             StringBuilder sb = new StringBuilder("\n");
             for (int i = 0; i < array.GetLength(0); i++)
@@ -120,18 +117,33 @@ namespace LaboratoryWork1.utils
             return sb.ToString();
         }
 
-        public static String PrintArray(int[][] arrays)
+        public static string PrintArray(T[][] arrays)
         {
             StringBuilder sb = new StringBuilder("\n");
-            foreach (int[] array in arrays)
+            foreach (T[] array in arrays)
             {
-                foreach (int element in array)
+                foreach (T element in array)
                 {
                     sb.Append($"{element} ");
                 }
                 sb.Append("\n");
             }
             return sb.ToString();
+        }
+
+        public static T[] DeleteIndex(T[] array, int index)
+        {
+            T[] result = new T[array.Length - 1];
+
+            for (int i = 0, j = 0; i < array.Length; i++)
+            {
+                if (i != index)
+                {
+                    result[j] = array[i];
+                    j++;
+                }
+            }
+            return result;
         }
 
         public static void BubleSort(ref int[] array)
@@ -179,6 +191,5 @@ namespace LaboratoryWork1.utils
             return isFind;
 
         }
-
     }
 }

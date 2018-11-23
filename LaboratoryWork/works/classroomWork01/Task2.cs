@@ -24,7 +24,7 @@ namespace LaboratoryWork1.works.classroomWork01
         /// </summary>
         protected override void executeTasck()
         {
-            int[] array = ArrayUtils.CreateArray((e) => { return ArrayUtils.random.Next(-50, 51); });
+            int[] array = IntArrayUtils.CreateArray((e) => { return Utils.random.Next(-50, 51); });
             int changeCount = 0;
 
             checker checkSign = e => e >= 0;

@@ -78,7 +78,7 @@ namespace LaboratoryWork1.works.work04
             return maxIndex;
         }
 
-        private int[] UpdateArray(int[] array, ArrayUtils.createElementFunction makeFunction)
+        private int[] UpdateArray(int[] array, IntArrayUtils.createElementFunction makeFunction)
         {
             int n = Utils.ReadInt($"number new array elements");
             int k = Utils.ReadInt($"position K for insert");
@@ -100,7 +100,7 @@ namespace LaboratoryWork1.works.work04
                     j++;
                 }
             }
-            Utils.PrintLnText($"UpdateArray successful: {ArrayUtils.PrintArray(result)}");
+            Utils.PrintLnText($"UpdateArray successful: {IntArrayUtils.PrintArray(result)}");
             return result;
         }
 
@@ -131,7 +131,7 @@ namespace LaboratoryWork1.works.work04
                     oddIndex--;
                 }
             }
-            Utils.PrintLnText($"Transposition successful: {ArrayUtils.PrintArray(result)}");
+            Utils.PrintLnText($"Transposition successful: {IntArrayUtils.PrintArray(result)}");
             return array;
         }
 
@@ -145,7 +145,7 @@ namespace LaboratoryWork1.works.work04
             int n = Utils.ReadInt($"value for find");
             int findIndex;
             int count;
-            if (ArrayUtils.FindValue(array, n, out findIndex, out count))
+            if (IntArrayUtils.FindValue(array, n, out findIndex, out count))
             {
                 Utils.PrintLnText($"value {n} index = {findIndex}; compare count = {count}");
             }
@@ -195,8 +195,8 @@ namespace LaboratoryWork1.works.work04
             {
                 return array;
             }
-            ArrayUtils.BubleSort(ref array);
-            Utils.PrintLnText($"Sort successful: {ArrayUtils.PrintArray(array)}");
+            IntArrayUtils.BubleSort(ref array);
+            Utils.PrintLnText($"Sort successful: {IntArrayUtils.PrintArray(array)}");
             return array;
         }
 
@@ -219,12 +219,12 @@ namespace LaboratoryWork1.works.work04
         {            
             switch (action)
             {
-                case 1: array = ArrayUtils.CreateArray(ArrayUtils.ElementFromHand); break;
-                case 2: array = ArrayUtils.CreateArray(ArrayUtils.ElementFromRandom); break;
-                case 3: Utils.PrintLnText($"Array: {ArrayUtils.PrintArray(array)}"); break;
+                case 1: array = IntArrayUtils.CreateArray(Utils.intArrayUtils.ElementFromHand); break;
+                case 2: array = IntArrayUtils.CreateArray(Utils.intArrayUtils.ElementFromRandom); break;
+                case 3: Utils.PrintLnText($"Array: {IntArrayUtils.PrintArray(array)}"); break;
                 case 4: array = DeleteFromArray(array); break;
-                case 5: array = UpdateArray(array, ArrayUtils.ElementFromHand); break;
-                case 6: array = UpdateArray(array, ArrayUtils.ElementFromRandom); break;
+                case 5: array = UpdateArray(array, Utils.intArrayUtils.ElementFromHand); break;
+                case 6: array = UpdateArray(array, Utils.intArrayUtils.ElementFromRandom); break;
                 case 7: array = Transposition(array); break;
                 case 8: FindValue(array); break;
                 case 9: array = Sort(array); break;

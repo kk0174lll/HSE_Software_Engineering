@@ -28,8 +28,10 @@ namespace LaboratoryWork
             //new LaboratoryWork1.works.classroomWork01.Task1().runTask();
             //new LaboratoryWork1.works.classroomWork01.Task2().runTask();
             //new LaboratoryWork1.works.classroomWork01.Task3().runTask();
-            new LaboratoryWork1.works.classroomWork01.Task4().runTask();
-
+            //new LaboratoryWork1.works.classroomWork01.Task4().runTask();
+            //new LaboratoryWork1.works.work06.Task1().runTask();
+            new LaboratoryWork1.works.work06.Task2().runTask();
         }
+
     }
 }
