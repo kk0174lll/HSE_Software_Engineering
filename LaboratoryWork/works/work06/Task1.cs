@@ -15,7 +15,7 @@ namespace LaboratoryWork1.works.work06
 
         public Task1()
         {
-            taskName = "v19. w05, task 1";
+            taskName = "v19. w06, task 1";
 
         }
         /// <summary>

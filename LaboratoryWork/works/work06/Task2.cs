@@ -9,6 +9,10 @@ namespace LaboratoryWork1.works.work06
 {
     class Task2 : ATask
     {
+        public Task2()
+        {
+            taskName = "v19. w06, task 2";
+        }
         char[] wordSeparators = new char[7] { ',', '.', ' ', ';', ':', '!', '?' };
         /// <summary>
         /// 1. Ввести строку символов с клавиатуры. Строка состоит из слов, разделенных пробелами 
@@ -21,10 +25,7 @@ namespace LaboratoryWork1.works.work06
         /// </summary>
         protected override void executeTasck()
         {
-            string enteredText = Utils.ReadString();
-
-            string[] wordsArray = enteredText.Split(wordSeparators, StringSplitOptions.RemoveEmptyEntries);
-            Utils.PrintText($"result = {Process(enteredText)}");
+            Utils.PrintText($"result = {Process(Utils.ReadString())}");
         }
 
         private string Process(string enteredText)

@@ -25,6 +25,9 @@ namespace LaboratoryWork1.works
         {
             Utils.PrintLnText(taskName);
         }
-
+        public string getTasckName()
+        {
+            return taskName;
+        }
     }
 }
