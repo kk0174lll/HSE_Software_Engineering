@@ -1,9 +1,4 @@
-﻿using LaboratoryWork1.utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace LaboratoryWork
 {
@@ -74,9 +69,14 @@ namespace LaboratoryWork
 
         public static string ReadString()
         {
+            return ReadString("string");
+        }
+
+        public static string ReadString(string variableName)
+        {
             do
             {
-                Utils.PrintText("Please enter string: ");
+                Utils.PrintText($"Please enter {variableName}: ");
                 string enteredText = Console.ReadLine();
                 if (enteredText.Length == 0)
                 {
@@ -94,7 +94,7 @@ namespace LaboratoryWork
         {
             do
             {
-                Utils.PrintText($"Please enter {variableName} = ");
+                Utils.PrintText($"Please enter {variableName}: ");
                 string enteredText = Console.ReadLine();
                 T result;
                 if (tryParse(enteredText, out result))
@@ -103,6 +103,30 @@ namespace LaboratoryWork
                 }
                 Utils.PrintLnErrorText($"ERRORR: fail parse {enteredText}. Try again.");
             } while (true);
+        }
+
+        public static String StringValue(Object o)
+        {
+            return StringValue(o, "");
+        }
+
+        public static String StringValue(Object o, string defaultValue)
+        {
+            if (null == o)
+            {
+                return defaultValue;
+            }
+            if (o.GetType() == typeof(string))
+            {
+                String s = (String)o;
+                return IsEmpty(s) ? defaultValue : s.Trim();
+            }
+            return o.ToString();
+        }
+
+        public static bool IsEmpty(String str)
+        {
+            return str == null || str.Length == 0 || str.Trim().Length == 0;
         }
 
     }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboratoryWork1.works.work06
+namespace LaboratoryWork.works.work06
 {
     class Task2 : ATask
     {

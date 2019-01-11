@@ -1,10 +1,6 @@
-using LaboratoryWork1.works;
-
+using LaboratoryWork.works;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaboratoryWork
 {
@@ -15,55 +11,49 @@ namespace LaboratoryWork
         static void Main(string[] args)
         {
             List<ATask> taskList = fillTaskList();
-            bool exit = false;
-            do
+            MenuUtils.MakeMenu(() =>
             {
-                int i = 0;
+                int i = 1;
                 Console.Clear();
-                foreach (ATask task in taskList)
+                taskList.ForEach(task => Utils.PrintLnText($"{i++} - {task.getTasckName()}"));
+                Utils.PrintLnText($" 0 - exit");
+            }, (int action, ref bool exit) =>
+            {
+                if (action == 0)
                 {
-                    Utils.PrintLnText($"{i} - {task.getTasckName()}");
-                    i++;
+                    exit = true;
                 }
-                try
+                else
                 {
-                    int action = Utils.ReadInt("number of action");
-                    if (action == 0)
-                    {
-                        exit = true;
-                    }
-                    else
-                    {
-                        taskList[action].runTask();
-                    }
+                    taskList[--action].runTask();
                 }
-                catch (Exception e)
-                {
-                    Utils.PrintLnErrorText($"something wrong ({e.Message}), try again");
-                }
-            } while (!exit);
+            });
         }
 
-        private static List<ATask> fillTaskList() {
+        private static List<ATask> fillTaskList()
+        {
             List<ATask> taskList = new List<ATask>();
-            taskList.Add(new LaboratoryWork1.works.work01.Task1_1());
-            taskList.Add(new LaboratoryWork1.works.work01.Task1_2());
-            taskList.Add(new LaboratoryWork1.works.work01.Task1_3());
-            taskList.Add(new LaboratoryWork1.works.work01.Task1_4());
-            taskList.Add(new LaboratoryWork1.works.work01.Task2_1());
-            taskList.Add(new LaboratoryWork1.works.work01.Task3_1());
-            taskList.Add(new LaboratoryWork1.works.work02.Task1());
-            taskList.Add(new LaboratoryWork1.works.work02.Task2());
-            taskList.Add(new LaboratoryWork1.works.work02.Task3());
-            taskList.Add(new LaboratoryWork1.works.work03.Task1());
-            taskList.Add(new LaboratoryWork1.works.work04.Task1());
-            taskList.Add(new LaboratoryWork1.works.work05.Task1());
-            taskList.Add(new LaboratoryWork1.works.classroomWork01.Task1());
-            taskList.Add(new LaboratoryWork1.works.classroomWork01.Task2());
-            taskList.Add(new LaboratoryWork1.works.classroomWork01.Task3());
-            taskList.Add(new LaboratoryWork1.works.classroomWork01.Task4());
-            taskList.Add(new LaboratoryWork1.works.work06.Task1());
-            taskList.Add(new LaboratoryWork1.works.work06.Task2());
+            taskList.Add(new LaboratoryWork.works.work01.Task1_1());
+            taskList.Add(new LaboratoryWork.works.work01.Task1_2());
+            taskList.Add(new LaboratoryWork.works.work01.Task1_3());
+            taskList.Add(new LaboratoryWork.works.work01.Task1_4());
+            taskList.Add(new LaboratoryWork.works.work01.Task2_1());
+            taskList.Add(new LaboratoryWork.works.work01.Task3_1());
+            taskList.Add(new LaboratoryWork.works.work02.Task1());
+            taskList.Add(new LaboratoryWork.works.work02.Task2());
+            taskList.Add(new LaboratoryWork.works.work02.Task3());
+            taskList.Add(new LaboratoryWork.works.work03.Task1());
+            taskList.Add(new LaboratoryWork.works.work04.Task1());
+            taskList.Add(new LaboratoryWork.works.work05.Task1());
+            taskList.Add(new LaboratoryWork.works.classroomWork01.Task1());
+            taskList.Add(new LaboratoryWork.works.classroomWork01.Task2());
+            taskList.Add(new LaboratoryWork.works.classroomWork01.Task3());
+            taskList.Add(new LaboratoryWork.works.classroomWork01.Task4());
+            taskList.Add(new LaboratoryWork.works.work06.Task1());
+            taskList.Add(new LaboratoryWork.works.work06.Task2());
+            taskList.Add(new LaboratoryWork.works.work07.Task1());
+            taskList.Add(new LaboratoryWork.works.work07.Task2());
+            taskList.Add(new LaboratoryWork.works.work07.Task3());
             return taskList;
         }
 

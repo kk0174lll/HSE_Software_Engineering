@@ -1,11 +1,8 @@
-﻿using LaboratoryWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace LaboratoryWork1.utils
+
+namespace LaboratoryWork
 {
     abstract class UniArrayUtils<T>
     {

@@ -1,9 +1,6 @@
-﻿
-using LaboratoryWork;
-using LaboratoryWork1.utils;
-using System;
+﻿using System;
 
-namespace LaboratoryWork1.works.work05
+namespace LaboratoryWork.works.work05
 {
     class Task1 : ATask, IExecutor
     {

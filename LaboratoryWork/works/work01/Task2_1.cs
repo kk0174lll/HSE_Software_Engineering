@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboratoryWork1.works.work01
+namespace LaboratoryWork.works.work01
 {
     class Task2_1 : ATask
     {
         public Task2_1()
         {
-            taskName = "v19. task 2";
+            taskName = "v19. w01, task 2";
         }
 
         static bool checkArea(int x, int y)

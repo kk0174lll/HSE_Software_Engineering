@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboratoryWork1.works.work01
+namespace LaboratoryWork.works.work01
 {
     class Task1_4 : ATask
     {
         public Task1_4()
         {
-            taskName = "v19. task 1. 4)";
+            taskName = "v19. w01, task 1. 4)";
         }
         static String calculate(int x)
         {

@@ -1,11 +1,6 @@
-﻿using LaboratoryWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace LaboratoryWork1.utils
+namespace LaboratoryWork
 {
     class IntArrayUtils : UniArrayUtils<int>
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboratoryWork1.works
+namespace LaboratoryWork.works
 {
     abstract class ATask
     {
@@ -16,6 +16,7 @@ namespace LaboratoryWork1.works
             Console.Clear();
             printTasckName();
             executeTasck();
+            Utils.PrintText("Press any key to exit from Task");
             Console.ReadKey();
         }
 

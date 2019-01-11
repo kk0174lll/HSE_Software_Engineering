@@ -1,12 +1,6 @@
-﻿using LaboratoryWork;
-using LaboratoryWork1.utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace LaboratoryWork1.works.work06
+namespace LaboratoryWork.works.work06
 {
     class Task1 : ATask
     {

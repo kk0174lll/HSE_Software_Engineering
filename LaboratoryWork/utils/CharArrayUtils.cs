@@ -1,11 +1,4 @@
-﻿using LaboratoryWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LaboratoryWork1.utils
+﻿namespace LaboratoryWork
 {
     class CharArrayUtils : UniArrayUtils<char>
     {

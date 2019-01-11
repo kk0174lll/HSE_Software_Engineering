@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LaboratoryWork;
-using LaboratoryWork1.works;
+using LaboratoryWork.works;
 
-namespace LaboratoryWork1.works.work01
+namespace LaboratoryWork.works.work01
 {
     class Task1_1 : ATask
     {
         public Task1_1()
         {
-            taskName = "v19. task 1. 1)";
+            taskName = "v19. w01, task 1. 1)";
         }
 
         static String calculate(int n, int m)
