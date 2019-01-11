@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LaboratoryWork.works.work07
+namespace LaboratoryWork
 {
     class OneDirList<T> : IEnumerable<T>, IEnumerator<T>
     {

@@ -1,6 +1,6 @@
 ﻿
 
-namespace LaboratoryWork.works.work07
+namespace LaboratoryWork
 {
     class Nod<T>
     {

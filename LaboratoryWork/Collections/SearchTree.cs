@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace LaboratoryWork.works.work07
+namespace LaboratoryWork
 {
     class SearchTree<T> : Tree<T> where T : IComparable
     {

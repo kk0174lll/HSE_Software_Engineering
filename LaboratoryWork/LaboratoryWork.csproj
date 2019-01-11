@@ -71,16 +71,16 @@
     <Compile Include="works\work05\Task1.cs" />
     <Compile Include="works\work06\Task1.cs" />
     <Compile Include="works\work06\Task2.cs" />
-    <Compile Include="works\work07\AVLTree.cs" />
-    <Compile Include="works\work07\BiDirList.cs" />
-    <Compile Include="works\work07\BTreePrinter.cs" />
-    <Compile Include="works\work07\Nod.cs" />
-    <Compile Include="works\work07\OneDirList.cs" />
-    <Compile Include="works\work07\SearchTree.cs" />
+    <Compile Include="Collections\AVLTree.cs" />
+    <Compile Include="Collections\BiDirList.cs" />
+    <Compile Include="Collections\BTreePrinter.cs" />
+    <Compile Include="Collections\Nod.cs" />
+    <Compile Include="Collections\OneDirList.cs" />
+    <Compile Include="Collections\SearchTree.cs" />
     <Compile Include="works\work07\Task1.cs" />
     <Compile Include="works\work07\Task2.cs" />
     <Compile Include="works\work07\Task3.cs" />
-    <Compile Include="works\work07\Tree.cs" />
+    <Compile Include="Collections\Tree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

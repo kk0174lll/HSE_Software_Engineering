@@ -1,12 +1,7 @@
-﻿using LaboratoryWork;
-using LaboratoryWork.works.work07;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LaboratoryWork1.works.work07
+namespace LaboratoryWork
 {
     class BTreePrinter<T>
     {

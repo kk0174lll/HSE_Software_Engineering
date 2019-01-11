@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
-namespace LaboratoryWork.works.work07
+namespace LaboratoryWork
 {
     class BiDirList<T> : OneDirList<T>
     {

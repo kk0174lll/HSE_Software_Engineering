@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace LaboratoryWork.works.work07
+namespace LaboratoryWork
 {
     class AVLTree<T> : Tree<T> where T : IComparable
     {

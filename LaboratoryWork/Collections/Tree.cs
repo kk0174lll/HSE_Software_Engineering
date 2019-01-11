@@ -1,10 +1,7 @@
-﻿
-
-using LaboratoryWork1.works.work07;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace LaboratoryWork.works.work07
+namespace LaboratoryWork
 {
     class Tree<T> where T : IComparable
     {
